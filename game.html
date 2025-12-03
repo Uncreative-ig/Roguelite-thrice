@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tektur">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FellHeart: Prototype v0.1</title>
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<div class="game-container">
+<div id="storyModal" class="story-modal">
+<div class="story-modal-content">
+<button class="story-close-btn" onclick="closeStory()">✕ Close</button>
+<h2>The Story</h2>
+<p>Words : )</p>
+</div>
+</div>
+
+<div id="introScreen" class="intro-screen">
+<div class="intro-content">
+<div class="intro-logo">insert logo</div>
+<h1 class="intro-title">insert title</h1>
+<p class="intro-subtitle">Prototype v0.1</p>
+<p id="randomText" class="intro-text">Loading..</p>
+</div>
+<div class="intro-skip" onclick="skipIntro()">Press to Skip →</div>
+</div>
+
+<div id="startScreen" class="screen">
+<div class="menu-container">
+<div class="menu-panel story-panel">
+<div>
+<h2>About</h2>
+<button class="story-button" onclick="showStory()">Read Story</button>
+<div class="story-text">
+<p><strong>Prototype Goal: </strong></p>
+<p>Test core mechanics with minimal content</p>
+</div>
+<div class="whats-new">
+<h3>Prototype Content</h3>
+<ul>
+<li>2 Classes</li>
+<li>3 Battles</li>
+<li>1 Emotion</li>
+<li>3 Enemies</li>
+<li>3 Reward Types</li>
+</ul>
+</div>
+</div>
+<div class="version-text">Prototype Version 0.1</div>
+</div>
+<div class="menu-panel center-panel">
+<h1 class="game-title">FellHeart</h1>
+<div class="character-creator">
+<div class="char-input-group">
+<label>Name: </label>
+<input type="text" id="playerName" class="input-field" placeholder="Enter your name" value="...">
+</div>
+<div class="char-input-group">
+<label>Choose Your Class: </label>
+<div id="classSelection" class="class-grid"></div>
+</div>
+</div>
+<button class="play-button" onclick="startGame()">▶ Begin Prototype</button>
+</div>
+<div class="menu-panel stats-panel">
+<h2>Stats (W.I.P)</h2>
+<div class="stat-item"><span class="label">Total Battles: </span><span class="value">0</span></div>
+<div class="stat-item"><span class="label">Tries</span><span class="value">100000</span></div>
+<div class="stat-item"><span class="label">Wins</span><span class="value">0</span></div>
+<div class="stat-item"><span class="label">Classes Mastered</span><span class="value">0</span></div>
+</div>
+</div>
+</div>
+
+<div id="battleScreen" class="screen">
+<div class="section">
+<div class="section-title">Battle Progress</div>
+<div id="battleProgress">Battle 1 of 3</div>
+<div class="progress-bar"><div id="progressFill" class="progress-fill" style="width: 0%"></div></div>
+<div id="biomeInfo" class="biome-banner"></div>
+</div>
+<div class="stats-grid">
+<div class="section" style="position: relative" id="playerSection">
+<div class="section-title">Player</div>
+<div id="playerStats"></div>
+<div class="hp-bar"><div id="playerHPFill" class="hp-fill" style="width: 100%"></div><div id="playerHPText" class="hp-text">100/100</div></div>
+<div id="playerStatuses"></div>
+</div>
+<div class="section" style="position: relative" id="enemySection">
+<div class="section-title">Enemy</div>
+<div id="enemyStats"></div>
+<div class="hp-bar"><div id="enemyHPFill" class="hp-fill" style="width: 100%"></div><div id="enemyHPText" class="hp-text">100/100</div></div>
+<div id="enemyStatuses"></div>
+</div>
+</div>
+<div class="section">
+<div class="section-title">Emotions</div>
+<div id="emotionDisplay"></div>
+</div>
+<div class="section">
+<div class="section-title">Your Turn</div>
+<div id="actionButtons">
+<button class="button" onclick="normalAttack()">Normal Attack</button>
+<button class="button" onclick="showSkills()">Use Skill</button>
+</div>
+<div id="skillSelection" class="hidden">
+<div class="skill-list" id="skillList"></div>
+<button class="button" onclick="hideSkills()">Back</button>
+</div>
+</div>
+<div class="section">
+<div class="section-title">Battle Log</div>
+<div id="battleLog" class="log"></div>
+</div>
+</div>
+
+<div id="postBattleScreen" class="screen">
+<div class="title">Victory!</div>
+<div class="section">
+<div class="section-title">Battle Complete</div>
+<div id="rewardInfo"></div>
+</div>
+<div class="section">
+<div class="section-title">Choose Your Reward</div>
+<div id="rewardChoices" class="choice-grid"></div>
+</div>
+</div>
+
+<div id="gameOverScreen" class="screen">
+<div class="title">Game Over</div>
+<div class="section"><div id="gameOverInfo"></div></div>
+<button class="button" onclick="location.reload()">Try Again</button>
+</div>
+
+<div id="victoryScreen" class="screen">
+<div class="title">🎉 Prototype Complete! 🎉</div>
+<div class="section"><div id="victoryInfo"></div></div>
+<button class="button" onclick="location.reload()">Play Again</button>
+</div>
+</div>
+<script src="base.js"></script>
+</body>
+</html>
