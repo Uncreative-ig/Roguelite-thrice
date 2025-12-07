@@ -645,24 +645,7 @@ text-align: center;
     margin-bottom: 8px;
     font-size: 1.1em;
 }
-.play-button{
-    width: 100%;
-    padding: 22px;
-    font-size: 1.6em;
-    background: linear-gradient(135deg, #ff3250 0%, #8c50ff 100%);
-    border: 3px solid transparent;
-    color: white;
-    cursor: pointer;
-    border-radius: 15px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: 'Tektur', sans-serif;
-    text-transform: uppercase;
-    font-weight: bold;
-    box-shadow: 0 10px 40px rgba(255, 50, 100, 0.4);
-    position: relative;
-    overflow: hidden;
-}
-.play-button:hover{
+.play-button::before{
     content: '';
     position: absolute;
     top: -50%;
@@ -672,6 +655,12 @@ text-align: center;
     background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     transform: rotate(45deg);
     animation: buttonShine 3s infinite;
+}
+
+.play-button:hover{
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 50px rgba(255, 50, 100, 0.6), 0 0 30px rgba(140, 80, 255, 0.5);
+    background: linear-gradient(135deg, #8c50ff 0%, #ff3250 100%);
 }
 @keyframes buttonShine{
     0%{transform: translateX(-100%) translateY(-100%) rotate(45deg)}
