@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tektur">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FellHeart: Prototype v0.1 - Fixed</title>
+<title>FellHeart: Prototype v0.1 - FIXED</title>
 <link rel="stylesheet" href="base.css">
 </head>
 <body>
@@ -13,21 +13,11 @@
 <div class="story-modal-content">
 <button class="story-close-btn" onclick="closeStory()">✕ Close</button>
 <h2>The Story</h2>
-<p>Words : )</p>
+<p>In development...</p>
 </div>
 </div>
 
-<div id="introScreen" class="intro-screen">
-<div class="intro-content">
-<div class="intro-logo">insert logo</div>
-<h1 class="intro-title">insert title</h1>
-<p class="intro-subtitle">Prototype v0.1 - FIXED</p>
-<p id="randomText" class="intro-text">Loading..</p>
-</div>
-<div class="intro-skip" onclick="skipIntro()">Press to Skip →</div>
-</div>
-
-<div id="startScreen" class="screen">
+<div id="startScreen" class="screen active">
 <div class="menu-container">
 <div class="menu-panel story-panel">
 <div>
@@ -42,13 +32,13 @@
 <ul>
 <li>2 Classes</li>
 <li>5 Battles (extended!)</li>
-<li>2 Emotions (Anger & Focus)</li>
+<li>2 Emotions (Anger unlocks battle 1, Focus unlocks battle 3)</li>
 <li>3 Enemies</li>
 <li>3 Reward Types</li>
 </ul>
 </div>
 </div>
-<div class="version-text">Prototype Version 0.1 - FIXED</div>
+<div class="version-text">Prototype v0.1 - FIXED</div>
 </div>
 <div class="menu-panel center-panel">
 <h1 class="game-title">FellHeart</h1>
@@ -62,14 +52,13 @@
 <div id="classSelection" class="class-grid"></div>
 </div>
 </div>
-<button class="button" style="padding: 20px 40px; font-size: 1.3em;" onclick="startGame()">▶ Begin Prototype</button>
+<button class="button" style="padding:20px 40px;font-size:1.3em" onclick="startGame()">▶ Begin Prototype</button>
 </div>
 <div class="menu-panel stats-panel">
 <h2>Stats (W.I.P)</h2>
 <div class="stat-item"><span class="label">Total Battles: </span><span class="value">0</span></div>
-<div class="stat-item"><span class="label">Tries</span><span class="value">100000</span></div>
+<div class="stat-item"><span class="label">Tries</span><span class="value">∞</span></div>
 <div class="stat-item"><span class="label">Wins</span><span class="value">0</span></div>
-<div class="stat-item"><span class="label">Classes Mastered</span><span class="value">0</span></div>
 </div>
 </div>
 </div>
@@ -78,20 +67,20 @@
 <div class="section">
 <div class="section-title">Battle Progress</div>
 <div id="battleProgress">Battle 1 of 5</div>
-<div class="progress-bar"><div id="progressFill" class="progress-fill" style="width: 0%"></div></div>
+<div class="progress-bar"><div id="progressFill" class="progress-fill" style="width:0%"></div></div>
 <div id="biomeInfo" class="biome-banner"></div>
 </div>
 <div class="stats-grid">
-<div class="section" style="position: relative" id="playerSection">
+<div class="section" style="position:relative" id="playerSection">
 <div class="section-title">Player</div>
 <div id="playerStats"></div>
-<div class="hp-bar"><div id="playerHPFill" class="hp-fill" style="width: 100%"></div><div id="playerHPText" class="hp-text">100/100</div></div>
+<div class="hp-bar"><div id="playerHPFill" class="hp-fill" style="width:100%"></div><div id="playerHPText" class="hp-text">100/100</div></div>
 <div id="playerStatuses"></div>
 </div>
-<div class="section" style="position: relative" id="enemySection">
+<div class="section" style="position:relative" id="enemySection">
 <div class="section-title">Enemy</div>
 <div id="enemyStats"></div>
-<div class="hp-bar"><div id="enemyHPFill" class="hp-fill" style="width: 100%"></div><div id="enemyHPText" class="hp-text">100/100</div></div>
+<div class="hp-bar"><div id="enemyHPFill" class="hp-fill" style="width:100%"></div><div id="enemyHPText" class="hp-text">100/100</div></div>
 <div id="enemyStatuses"></div>
 </div>
 </div>
