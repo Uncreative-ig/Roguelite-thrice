@@ -463,11 +463,16 @@ function showSkills() {
     gameState.player.skills.forEach((skill, index) => {
         const btn = document.createElement('button');
         btn.className = 'skill-button';
+        btn.style.cursor = 'pointer';
+        btn.style.position = 'relative';
+        btn.style.zIndex = '10';
 
         if (skill.currentCooldown === 0) {
             btn.classList.add('clickable');
+            btn.style.pointerEvents = 'auto';
         } else {
             btn.classList.add('disabled');
+            btn.style.pointerEvents = 'none';
         }
 
         btn.innerHTML = `
@@ -478,7 +483,13 @@ function showSkills() {
         `;
 
         if (skill.currentCooldown === 0) {
-            btn.onclick = () => useSkill(index);
+            const skillIdx = index;
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Skill clicked:', skillIdx);
+                useSkill(skillIdx);
+            });
         }
 
         skillList.appendChild(btn);
