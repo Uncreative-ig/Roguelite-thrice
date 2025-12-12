@@ -667,11 +667,20 @@ function showPostBattle() {
     REWARDS.forEach((reward) => {
         const card = document.createElement('div');
         card.className = 'choice-card';
+        card.style.cursor = 'pointer';
+        card.style.pointerEvents = 'auto';
         card.innerHTML = `
             <h3>${reward.name}</h3>
             <p>${reward.description}</p>
         `;
-        card.onclick = () => selectReward(reward);
+        
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Reward selected:', reward.name);
+            selectReward(reward);
+        });
+        
         rewardChoices.appendChild(card);
     });
 }
@@ -909,11 +918,15 @@ function showFloatingIndicator(target, text, type) {
 // ==================== INITIALIZATION ====================
 function skipIntro() {
     const intro = document.getElementById('introScreen');
-    intro.style.animation = 'introFadeOut 0.5s ease-in-out forwards';
-    setTimeout(() => {
-        intro.style.display = 'none';
+    if (intro) {
+        intro.style.animation = 'introFadeOut 0.5s ease-in-out forwards';
+        setTimeout(() => {
+            intro.style.display = 'none';
+            showScreen('startScreen');
+        }, 500);
+    } else {
         showScreen('startScreen');
-    }, 500);
+    }
 }
 
 var textArray = ["Sup",
@@ -981,12 +994,16 @@ function initializeClassSelection() {
 window.addEventListener('DOMContentLoaded', () => {
     randomText();
     initializeClassSelection();
+    
+    // Show intro screen first
+    const intro = document.getElementById('introScreen');
+    if (intro) {
+        intro.style.display = 'flex';
+        showScreen('introScreen');
+    }
 
+    // Auto-skip intro after 9 seconds
     setTimeout(() => {
-        const intro = document.getElementById('introScreen');
-        if (intro) {
-            intro.style.display = 'none';
-        }
-        showScreen('startScreen');
+        skipIntro();
     }, 9000);
 });
